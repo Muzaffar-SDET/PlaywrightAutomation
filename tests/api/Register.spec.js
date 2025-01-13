@@ -1,12 +1,20 @@
 const { test, expect, request } = require('@playwright/test');
 const AuthenticationService = require('../../api-test-services/AuthenticationService');
+const FakeDataUtil = require('../../utils/FakeDataUtil');
 
-test.only('Register API Test @api', async ({ request }) => {
+test('Register API Test @api', async ({ request }) => {
     const authenticationService = new AuthenticationService(request);  // Pass request to AuthenticationService
-    const data = {"firstName":"Playwright","lastName":"Test","userEmail":"Playwright8686@hotmail.com",
+    const firstName = FakeDataUtil.generateFakeFirstName();
+    const lastName = FakeDataUtil.generateFakeLastName();
+    const email = firstName + '.' + lastName + '@hotmail.com';
+    const phoneNumber = FakeDataUtil.generateFakePhoneNumber();
+    const password = FakeDataUtil.generateFakePassword()+'.1aA';
+    
+    
+    const data = {"firstName":firstName,"lastName":firstName,"userEmail":email,
         "userRole":"customer","occupation":"Doctor","gender":"Male",
-        "userMobile":"6953210956","userPassword":"kGaVve.iBbx4HmF",
-        "confirmPassword":"kGaVve.iBbx4HmF","required":true};
+        "userMobile":phoneNumber,"userPassword":password,
+        "confirmPassword":password,"required":true};
 
     // Call the register method (uses the baseURL + '/register' internally)
     const response = await authenticationService.register(data);

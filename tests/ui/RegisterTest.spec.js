@@ -3,7 +3,7 @@ const PageObjectManager = require('../../pages/PageObjectManager');
 const {FakeDataUtil} = require('../../utils/FakeDataUtil');
 
 
-test.only('Verify Registration - Success', async ({page})=> 
+test('Verify Registration - Success @ui', async ({page})=> 
 {
     const pageObjectManager = new PageObjectManager(page);
     const fakeFirstName = FakeDataUtil.generateFakeFirstName();

@@ -3,7 +3,7 @@ const PageObjectManager = require('../../pages/PageObjectManager');
 const config = require('../../config.json');  // Import the config file
 
 
-test('Verify Login - Success', async ({page})=> 
+test('Verify Login - Success @ui', async ({page})=> 
 {
     test.info().annotations.push({
         type: 'WebTest',

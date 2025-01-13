@@ -2,7 +2,7 @@ const {test, expect} = require('@playwright/test');
 const PageObjectManager = require('../../pages/PageObjectManager');
 const config = require('../../config.json');  // Import config file
 
-test('Verify Product added to cart', async ({page})=> 
+test('Verify Product added to cart @ui', async ({page})=> 
 {
     const pageObjectManager = new PageObjectManager(page);
     const loginPage = pageObjectManager.getLoginPage();

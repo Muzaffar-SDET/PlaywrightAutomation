@@ -1,7 +1,7 @@
 const { test, expect, request } = require('@playwright/test');
 const AuthenticationService = require('../../api-test-services/AuthenticationService');
 
-test.skip('Login API Test @api', async ({ request }) => {
+test('Login API Test @api', async ({ request }) => {
     const authenticationService = new AuthenticationService(request);  // Pass request to AuthenticationService
     const data = {
         "userEmail": "Assunta2545@hotmail.com",
