@@ -1,6 +1,6 @@
 const { test, expect, request } = require('@playwright/test');
 const AuthenticationService = require('../../api-test-services/AuthenticationService');
-const FakeDataUtil = require('../../utils/FakeDataUtil');
+const {FakeDataUtil} = require('../../utils/FakeDataUtil');
 
 test('Register API Test @api', async ({ request }) => {
     const authenticationService = new AuthenticationService(request);  // Pass request to AuthenticationService
@@ -9,10 +9,11 @@ test('Register API Test @api', async ({ request }) => {
     const email = firstName + '.' + lastName + '@hotmail.com';
     const phoneNumber = FakeDataUtil.generateFakePhoneNumber();
     const password = FakeDataUtil.generateFakePassword()+'.1aA';
+    const occupation = "Engineer";
     
     
-    const data = {"firstName":firstName,"lastName":firstName,"userEmail":email,
-        "userRole":"customer","occupation":"Doctor","gender":"Male",
+    const data = {"firstName":firstName,"lastName":lastName,"userEmail":email,
+        "userRole":"customer","occupation":occupation,"gender":"Male",
         "userMobile":phoneNumber,"userPassword":password,
         "confirmPassword":password,"required":true};
 
